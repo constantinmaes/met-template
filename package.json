@@ -1,0 +1,26 @@
+{
+    "name": "met-template",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "dependencies": {},
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^4.28.1",
+        "@typescript-eslint/parser": "^4.28.1",
+        "eslint": "^7.29.0",
+        "typescript": "^4.3.4"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/constantinmaes/met-template.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/constantinmaes/met-template/issues"
+    },
+    "homepage": "https://github.com/constantinmaes/met-template#readme"
+}
