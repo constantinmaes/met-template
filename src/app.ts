@@ -13,7 +13,7 @@ export class App {
         this.app = express();
         this.init();
         this.initDb();
-        this.$routes.start();
+        this.initRoutes();
     }
 
     public start() {
@@ -42,5 +42,9 @@ export class App {
             })
             .then(() => console.log(`Connected to MongoDB`))
             .catch((e) => console.error('Problem connecting to MongoDB', e));
+    }
+
+    private initRoutes() {
+        this.$routes.start(this.app);
     }
 }
