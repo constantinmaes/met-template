@@ -1,4 +1,6 @@
 import { Service } from 'typedi';
+import bodyParser from 'body-parser';
+import cors from 'cors';
 import express from 'express';
 import { Routes } from './routes';
 
@@ -8,6 +10,7 @@ export class App {
 
     constructor(private $routes: Routes) {
         this.app = express();
+        this.init();
         this.$routes.start();
     }
 
@@ -16,5 +19,9 @@ export class App {
         this.app.listen(port, () => console.log(`Listening on port ${port}`));
     }
 
-    private init() {}
+    private init() {
+        this.app.use(cors());
+        this.app.use(bodyParser.json());
+        this.app.use(bodyParser.urlencoded({ extended: false }));
+    }
 }
