@@ -13,6 +13,7 @@
         "mongoose": "^5.13.0",
         "passport": "^0.4.1",
         "passport-jwt": "^4.0.0",
+        "passport-local": "^1.0.0",
         "reflect-metadata": "^0.1.13",
         "typedi": "^0.10.0"
     },
@@ -24,6 +25,8 @@
         "@types/ioredis": "^4.26.4",
         "@types/node": "^15.12.5",
         "@types/passport": "^1.0.6",
+        "@types/passport-jwt": "^3.0.5",
+        "@types/passport-local": "^1.0.33",
         "@typescript-eslint/eslint-plugin": "^4.28.1",
         "@typescript-eslint/parser": "^4.28.1",
         "eslint": "^7.29.0",
