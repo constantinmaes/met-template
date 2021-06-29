@@ -1,9 +1,9 @@
 import { Service } from 'typedi';
-import { ExampleService } from '../services';
+import { CacheService, ExampleService } from '../services';
 
 @Service()
 export class ExampleController {
-    constructor(private service: ExampleService) {
+    constructor(private cache: CacheService, private service: ExampleService) {
         this.delete = this.delete.bind(this);
         this.find = this.find.bind(this);
         this.list = this.list.bind(this);
