@@ -15,13 +15,23 @@ export class CacheService {
         (await this.keys()).forEach((k) => this.#client.del(k));
     }
 
-    async get(key: string) {
-        const data = await this.#client.get(key);
+    async get(name: string) {
+        const data = await this.#client.get(name);
         return JSON.parse(data);
     }
 
     async has(name: string) {
         return (await this.keys()).findIndex((k) => k === name) !== -1;
+    }
+
+    async remember(name: string, cb: Function, ttl = this.#default_ttl) {
+        const data = await this.get(name);
+        if (data) {
+            return data;
+        } else {
+            const value = await cb();
+            return this.save(name, value);
+        }
     }
 
     save(key: string, value: any, ttl = this.#default_ttl) {
