@@ -1,4 +1,4 @@
-#MET template (Mongo, Express, Typescript template)
+# MET template (Mongo, Express, Typescript template)
 
 This is a boilerplate project setting up the following:
 
