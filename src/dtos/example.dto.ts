@@ -1,3 +1,3 @@
 import { Example } from '../interfaces';
 
-export interface exampleDto extends Partial<Example> {}
+export interface ExampleDTO extends Partial<Example> {}
