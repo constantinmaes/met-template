@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   mongodb:
-    image : mongo
+    image: mongo
     container_name: mongodb
     environment:
       - PUID=1000
@@ -10,3 +10,10 @@ services:
       - ./db:/data/db
     ports:
       - 27017:27017
+  redis:
+    image: "redis:alpine"
+    command: redis-server
+    ports:
+      - "6379:6379"
+    volumes:
+      - $PWD/redis:/var/lib/redis
