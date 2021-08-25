@@ -22,6 +22,9 @@ export const UserSchema = new Schema(
             set: async (v: string) => await bcrypt.hash(v, 10),
             trim: true,
         },
+        permissions: [{
+            type: String,
+        }],
         ...({} as { validatePassword: (data: string) => boolean }),
     },
     { timestamps: true }

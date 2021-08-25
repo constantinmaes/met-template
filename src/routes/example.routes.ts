@@ -1,12 +1,17 @@
 import { Service } from 'typedi';
 import express, { Router } from 'express';
 import { ExampleController } from '../controllers';
+import { AuthenticationMiddleware, AuthorizationMiddleware } from '../middlewares';
 
 @Service()
 export class ExampleRoutes {
     public router: Router;
 
-    constructor(private controller: ExampleController) {
+    constructor(
+        private authenticationMidleware: AuthenticationMiddleware,
+        private authorizationMiddleware: AuthorizationMiddleware,
+        private controller: ExampleController,
+    ) {
         this.router = express.Router();
         this.start();
     }
@@ -17,5 +22,15 @@ export class ExampleRoutes {
         this.router.get('/:id', this.controller.find);
         this.router.patch('/:id', this.controller.update);
         this.router.post('/', this.controller.store);
+
+        /**
+         * Example protected and authorized route
+         */
+        this.router.get(
+            '/example',
+            this.authenticationMidleware.authenticate,
+            this.authorizationMiddleware.permit('example:readAll'),
+            this.controller.list
+        );
     }
 }
